@@ -1,4 +1,4 @@
-package com.manpower.co.manpowermanagement.exception;
+package manpowermanagement.Exception;
 
 public class ResourceNotFoundException extends Exception {
 

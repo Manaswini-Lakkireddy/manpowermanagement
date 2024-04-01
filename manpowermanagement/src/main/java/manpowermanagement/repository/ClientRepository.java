@@ -1,10 +1,13 @@
-package com.manpower.co.manpowermanagement.repository;
+package manpowermanagement.repository;
 
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.manpower.co.manpowermanagement.DAO.*;
+
+import manpowermanagement.DAO.Client;
+
+//import com.manpower.co.manpowermanagement.ClientService;
 
 	
 @Repository

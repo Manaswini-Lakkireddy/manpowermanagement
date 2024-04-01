@@ -1,11 +1,4 @@
-package com.manpower.co.manpowermanagement.controller;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.manpower.co.manpowermanagement.exception.ResourceNotFoundException;
-import com.manpower.co.manpowermanagement.service.ClientService;
-
-import com.manpower.co.manpowermanagement.DAO.*;
-import jakarta.validation.Valid;
+package manpowermanagement.controller;
 
 import java.util.List;
 
@@ -18,22 +11,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-@RestController
-@RequestMapping("/api/client")
+import org.springframework.web.bind.annotation.RestController;
 
-public class ClientController {
+import jakarta.validation.Valid;
+import manpowermanagement.DAO.Projects;
+import manpowermanagement.Exception.ResourceNotFoundException;
+import manpowermanagement.service.ProjectService;
+
+
+@RestController
+@RequestMapping("/api/projects")
+
+public class ProjectController {
 	@Autowired
-	private ClientService clientservice;
+	ProjectService projectservice;
 	@GetMapping("/getall")
-	public List<Client> getAllClient()
+	public List<Projects> getAllProject()
 	{
-		return clientservice.getAllClient();
+		return projectservice.getAllProject();
 	}
 	@GetMapping("/{id}")
-	public Client getClientById(@PathVariable String id)
+	public Projects getClientById(@PathVariable String id)
 	{
 		try {
-			return clientservice.getClientById(id);
+			return projectservice.getProjectById(id);
 		} catch (ResourceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,27 +43,27 @@ public class ClientController {
 		
 	}
 	@PostMapping()
-	public Client createClient(@Valid @RequestBody Client client)
+	public Projects createProject(@Valid @RequestBody Projects project)
 	{
-		return clientservice.createClient(client);
+		return projectservice.createProject(project);
 	}
 	@PutMapping("/{id}")
-	public Client updateClient(@PathVariable String id,@Valid @RequestBody Client clientDetails)
+	public Projects updateProject(@PathVariable String id,@Valid @RequestBody Projects projectDetails)
 	{
 		try {
-			return clientservice.updateClient(id,clientDetails);
+			return projectservice.updateProject(id,projectDetails);
 		} catch (ResourceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return clientDetails;
+		return projectDetails;
 	
 	}
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteClient(@PathVariable String id)
+	public ResponseEntity<?> deleteProject(@PathVariable String id)
 	{
 		try {
-			clientservice.deleteClient(id);
+			projectservice.deleteProject(id);
 		} catch (ResourceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

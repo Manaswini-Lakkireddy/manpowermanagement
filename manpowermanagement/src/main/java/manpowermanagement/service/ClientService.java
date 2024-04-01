@@ -1,24 +1,24 @@
-package com.manpower.co.manpowermanagement.service;
+package manpowermanagement.service;
 
 import java.util.List;
 
 //import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-
+//import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.manpower.co.manpowermanagement.exception.ResourceNotFoundException;
-import com.manpower.co.manpowermanagement.repository.ClientRepository;
-
-import com.manpower.co.manpowermanagement.DAO.Client;
+import manpowermanagement.DAO.Client;
+import manpowermanagement.Exception.ResourceNotFoundException;
+import manpowermanagement.repository.ClientRepository;
 
 @Service
 @Configuration
+//@ComponentScan("com.manpower.co.manpowermanagement.repository")
 public class ClientService {
 	@Autowired
-	private ClientRepository clientRepository;
+     ClientRepository clientRepository;
 		
 	public List<Client> getAllClient()
 	{

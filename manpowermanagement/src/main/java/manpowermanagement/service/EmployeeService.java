@@ -53,4 +53,13 @@ public class EmployeeService {
     	Employees employee=employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee not found by id"+id));
     	employeeRepository.delete(employee);
     }
+//    public static List<Employees> printEmployeesByProjectId(String projectId) {
+//        List<Employees> employees = EmployeeRepository.fetchEmpProjDataJoin(projectId);
+//        for (Employees employee : employees) {
+//            System.out.println("Employee Name: " + employee.getEmp_Name());
+//            // Print other details as needed
+//        }
+//		return employees;
+//
+//    }
 }

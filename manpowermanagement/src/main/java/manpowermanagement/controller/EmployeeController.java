@@ -3,6 +3,7 @@ package manpowermanagement.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,6 +70,17 @@ public class EmployeeController {
 		}
 		return ResponseEntity.ok().build();
 	}
+//	@GetMapping("/proj/employees/{projectId}")
+//	public ResponseEntity<List<Employees>> getDeptEmployeesLeftJoin(String projectId) {
+//		try {
+//			return new ResponseEntity<List<Employees>>(EmployeeService.printEmployeesByProjectId(projectId), HttpStatus.OK);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+
 	
 	
 
